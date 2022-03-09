@@ -11,6 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     --fontBig: 1.5rem;
     --fontMed: 1.2rem;
     --fontSmall: 1rem;
+    --blue: rgb(46, 89, 196);
+    --medBlue: rgb(89, 116, 186);
   }
   * {
     box-sizing: border-box;

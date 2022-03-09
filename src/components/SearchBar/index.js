@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Wrapper, Content } from "./SearchBar.styles";
-import searchIcon from '../../images/search-icon.svg';
+import searchIcon from '../../images/search1.svg';
 
 const SearchBar = (props) => {
   const [state, setState] = useState('')

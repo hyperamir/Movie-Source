@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Spinner = styled.div`
-  border: 10px solid var(--lightGrey);
-  border-top: 10px solid var(--medGrey);
+  border: 10px solid var(--blue);
+  border-top: 10px solid var(--medBlue);
   border-radius: 50%;
   width: 50px;
   height: 50px;
