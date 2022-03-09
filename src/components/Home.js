@@ -4,6 +4,7 @@ import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config'
 //components
 import HeroImage from "./HeroImage";
 import Thumb from "./Thumb";
+import Spinner from "./Spinner";
 
 //hook
 import { useHomeFetch } from '../hooks/useHomeFetch'
@@ -34,6 +35,7 @@ const Home = () => {
       <Grid header='Popular Movies'>
         {listOfMovies}
       </Grid>
+      <Spinner />
     </>
   );
 }
