@@ -5,6 +5,7 @@ import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../config'
 import HeroImage from "./HeroImage";
 import Thumb from "./Thumb";
 import Spinner from "./Spinner";
+import SearchBar from "./SearchBar";
 
 //hook
 import { useHomeFetch } from '../hooks/useHomeFetch'
@@ -13,7 +14,7 @@ import noImage from '../images/no_image.jpg'
 import Grid from "./Grid";
 
 const Home = () => {
-  const { state, loading, error } = useHomeFetch()
+  const { state, loading, error, setSearchTerm } = useHomeFetch()
 
   console.log('state:', state)
 
@@ -32,6 +33,7 @@ const Home = () => {
         title={state.results[0].title}
         text={state.results[0].overview}
       />}
+      <SearchBar setSearchTerm={setSearchTerm}/>
       <Grid header='Popular Movies'>
         {listOfMovies}
       </Grid>
