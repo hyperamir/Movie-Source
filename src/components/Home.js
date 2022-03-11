@@ -17,8 +17,6 @@ import Grid from "./Grid";
 const Home = () => {
   const { state, loading, error, searchTerm, setIsLoadingMore, setSearchTerm } = useHomeFetch()
 
-  console.log('state:', state)
-
   const listOfMovies = state.results.map(movie => (
     <Thumb
       key={movie.id}
