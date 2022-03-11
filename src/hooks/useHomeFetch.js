@@ -53,7 +53,7 @@ export const useHomeFetch = () => {
     if (!isLoadingMore) return;
     fetchMovies(state.page + 1, searchTerm)
     setIsLoadingMore(false)
-  }, [isLoadingMore, state.page]);
+  }, [isLoadingMore, state.page, searchTerm]);
 
   //Write in sessionStorage
   useEffect(() => {
