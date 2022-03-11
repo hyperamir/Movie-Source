@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 //API
-import API from '../API'
+import API from '../API';
+import { isPersistedState } from "../helpers";
 
 const initialState = {
   page: 0,
@@ -34,15 +35,30 @@ export const useHomeFetch = () => {
   }
 
   useEffect(() => {
+    if (!searchTerm) {
+      const sessionState = isPersistedState('homeState');
+
+      if (sessionState) {
+        setState(sessionState);
+        return;
+      }
+    }
+
+    setState(initialState)
     fetchMovies(1, searchTerm);
   }, [searchTerm])
 
   //load more movies after clicking load more
-  useEffect(()=>{
-    if(!isLoadingMore) return;
-    fetchMovies(state.page + 1 , searchTerm)
+  useEffect(() => {
+    if (!isLoadingMore) return;
+    fetchMovies(state.page + 1, searchTerm)
     setIsLoadingMore(false)
-  }, [isLoadingMore, state.page])
+  }, [isLoadingMore, state.page]);
+
+  //Write in sessionStorage
+  useEffect(() => {
+    if (!searchTerm) sessionStorage.setItem('homeState', JSON.stringify(state))
+  }, [searchTerm, state])
 
   return { state, loading, error, searchTerm, setIsLoadingMore, setSearchTerm }
 }
