@@ -34,6 +34,8 @@ export const useHomeFetch = () => {
     setLoading(false);
   }
 
+  console.log('movies:', state)
+
   useEffect(() => {
     if (!searchTerm) {
       const sessionState = isPersistedState('homeState');

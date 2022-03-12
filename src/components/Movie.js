@@ -24,7 +24,7 @@ const Movie = () => {
     name={actor.name}
     character={actor.character}
   />)
-
+  console.log('movie:', movie)
   return (
     <>
       <BreadCrumb movieTitle={movie.original_title} />
